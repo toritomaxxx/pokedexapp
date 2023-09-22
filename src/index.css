@@ -418,8 +418,9 @@ Styles of Pokemon Single Page
 
 .container-loader{
 	display: flex;
+	height: 100%;
 	justify-content: center;
-	margin: 200px 0;
+	align-items: center;
 }
 
 /* Btn Load More */

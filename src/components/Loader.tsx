@@ -1,9 +1,9 @@
-import { DotWave } from "@uiball/loaders";
+import { DotSpinner } from "@uiball/loaders";
 
 export const Loader = () => {
   return (
     <div className="container-loader">
-      <DotWave size={47} speed={1} color="black" />
+      <DotSpinner size={40} speed={0.9} color="black" />
     </div>
   );
 };

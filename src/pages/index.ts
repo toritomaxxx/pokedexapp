@@ -1,3 +1,3 @@
-export * from "./Home";
-export * from "./Pokemon";
-export * from "./Search";
+export * from "./HomePage";
+export * from "./PokemonPage";
+export * from "./SearchPage";

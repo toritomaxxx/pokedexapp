@@ -1,12 +1,12 @@
-import { Router } from "./Router"
-import { PokemonProvider } from "./context/PokemonProvider"
+import { AppRouter } from "./AppRouter";
+import { PokemonProvider } from "./context/PokemonProvider";
 
 function App() {
   return (
     <PokemonProvider>
-      <Router />
+      <AppRouter />
     </PokemonProvider>
-  )
+  );
 }
 
-export default App
+export default App;

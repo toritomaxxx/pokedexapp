@@ -1,18 +1,19 @@
-import { useContext, useEffect, useState } from "react";
-import { PokemonContext } from "../context/PokemonContext";
+import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Loader } from "../components";
+import { PokemonContext } from "../context/PokemonContext";
 import { primerMayuscula } from "../helper/helper";
 
-export const Pokemon = () => {
-  const { getPokemonById } = useContext(PokemonContext);
+export const PokemonPage = () => {
+  const { getPokemonByID } = useContext(PokemonContext);
+
   const [loading, setLoading] = useState(true);
   const [pokemon, setPokemon] = useState({});
 
   const { id } = useParams();
 
   const fetchPokemon = async (id) => {
-    const data = await getPokemonById(id);
+    const data = await getPokemonByID(id);
     setPokemon(data);
     setLoading(false);
   };
@@ -30,10 +31,26 @@ export const Pokemon = () => {
           <div className="header-main-pokemon">
             <span className="number-pokemon">#{pokemon.id}</span>
             <div className="container-img-pokemon">
-              <img
-                src={pokemon.sprites.other.dream_world.front_default}
-                alt={`Pokemon ${pokemon?.name}`}
-              />
+              {
+                pokemon.sprites.other.dream_world.front_default === null ? (
+                  <img
+                    src={pokemon.sprites.front_default}
+                    alt={`Pokemon ${pokemon.name}`}
+                    style={{
+                      width: "200px",
+                      height: "200px",
+                    }}
+                  />
+                ) : (
+
+                  <img
+                    src={pokemon.sprites.other.dream_world.front_default}
+                    alt={`Pokemon ${pokemon.name}`}
+
+                  />
+                )
+
+              }
             </div>
 
             <div className="container-info-pokemon">

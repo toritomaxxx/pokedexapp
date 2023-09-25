@@ -106,29 +106,32 @@ header form {
 
 /* Btn Filter */
 .container-filter {
-  display: flex;
+  position :absolute;
+  top: 80px;
+  left: 20px;
+  padding: 20px;
+ 
+
+
 }
 
 .icon-filter {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-
-  margin-bottom: 20px;
+  width: 30px;
+  height: 30px;
   cursor: pointer;
 }
 
 .icon-filter .icon {
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
   stroke: #555;
 }
 
 /* Card List Pokemon */
 .card-list-pokemon {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 10px;
 
   justify-items: center;
   transition: all 0.3s linear;
@@ -137,7 +140,6 @@ header form {
 .card-pokemon {
   cursor: pointer;
   text-decoration: none;
-
   width: 250px;
   background-color: #fff;
   border-radius: 10px;
@@ -150,11 +152,7 @@ header form {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-image: url("../src/assets/desktop-wallpaper-pokemon-pokeball-❤-for-ultra-tv-poke-balls.jpg");
-  background-size: cover;
-  background-position: center;
-  border-radius: 10px 10px 0 0;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+
 }
 
 .card-img img {
@@ -162,10 +160,8 @@ header form {
 }
 
 .card-info {
-  padding: 15px;
-
+  align-items: center;
   display: flex;
-
   flex-direction: column;
 }
 
@@ -176,7 +172,7 @@ header form {
 .pokemon-id {
   display: block;
   color: #888;
-  margin-bottom: 15px;
+
 }
 
 .card-types {
@@ -191,7 +187,6 @@ header form {
   color: #fff;
   font-size: 12px;
   font-weight: 500;
-
   text-transform: capitalize;
 }
 

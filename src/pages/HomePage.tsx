@@ -32,7 +32,14 @@ export const HomePage = () => {
         ) : null
 
       }
-      <PokemonList />
+      <div
+        style={{
+          marginTop: "20px",
+        }}
+      >
+        <PokemonList />
+
+      </div>
       <FilterBar />
 
 

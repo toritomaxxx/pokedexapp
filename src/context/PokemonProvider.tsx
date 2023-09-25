@@ -103,6 +103,8 @@ export const PokemonProvider = ({ children }) => {
   const [filteredPokemons, setfilteredPokemons] = useState([]);
 
   const handleCheckbox = (e) => {
+    // quiero que me devuelva los objetos que tengan el tipo que seleccioné
+    
     setTypeSelected({
       ...typeSelected,
       [e.target.name]: e.target.checked,
@@ -112,14 +114,19 @@ export const PokemonProvider = ({ children }) => {
       const filteredResults = globalPokemons.filter((pokemon) =>
         pokemon.types.map((type) => type.type.name).includes(e.target.name)
       );
+      
       setfilteredPokemons([...filteredPokemons, ...filteredResults]);
+      
     } else {
       const filteredResults = filteredPokemons.filter(
         (pokemon) =>
           !pokemon.types.map((type) => type.type.name).includes(e.target.name)
       );
+
       setfilteredPokemons([...filteredResults]);
     }
+
+   
   };
 
   return (

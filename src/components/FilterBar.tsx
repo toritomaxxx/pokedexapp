@@ -8,29 +8,15 @@ export const FilterBar = () => {
   return (
     <div className={`container-filters ${active ? "active" : ""}`}>
       <div className="filter-by-type">
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-          }}
-        >
-
-          <h3 style={{ margin: "0" }}>Filtrar por tipo</h3>
+        <div>
           <button
-            style={{
-              border: "none",
-              background: "none",
-              cursor: "pointer",
-            }}
-
             onClick={() => setActive(!active)}>
             <CloseIcon
               style={{
-
                 fontSize: "2rem",
               }}
             />
+          <h3 >Filtrar por tipo</h3>
           </button>
         </div>
 

@@ -1,4 +1,5 @@
 export type Pokemon = {
+    id: number;
     sprites: string[];
     name: string;
     number: number;

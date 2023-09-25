@@ -286,7 +286,26 @@ header form {
   display: flex;
   flex-direction: column;
   gap: 10px;
+  
 }
+.filter-by-type h3 {
+  margin :0;
+  display: flex;
+  position: absolute;
+  top: 25px;
+  font-size: x-large;
+  
+}
+.filter-by-type button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  width: 100%;
+  text-align: right;
+  margin-bottom: 20px;
+}
+
+
 
 .filter-by-type span {
   font-size: 20px;

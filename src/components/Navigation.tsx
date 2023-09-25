@@ -14,6 +14,10 @@ export const Navigation = () => {
 
   const onSearchSubmit = (e) => {
     e.preventDefault();
+    
+    if (!valueSearch) {
+      return;
+    }
     navigate("/search", {
       state: valueSearch,
     });

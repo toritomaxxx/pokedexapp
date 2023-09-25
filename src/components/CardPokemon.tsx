@@ -35,6 +35,7 @@ export const CardPokemon = ({ pokemon }) => {
                 style={{
                   width: "200px",
                   height: "200px",
+
                 }}
               />
             )

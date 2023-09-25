@@ -16,6 +16,7 @@ export const PokemonProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
   const [active, setActive] = useState(false);
 
+
   // lLamar 50 pokemones a la API
   const getAllPokemons = async (limit = 50) => {
     const baseURL = "https://pokeapi.co/api/v2/";
@@ -69,6 +70,7 @@ export const PokemonProvider = ({ children }) => {
 
   useEffect(() => {
     getGlobalPokemons();
+
   }, []);
 
   // BTN CARGAR MÁS
@@ -104,29 +106,55 @@ export const PokemonProvider = ({ children }) => {
 
   const handleCheckbox = (e) => {
     // quiero que me devuelva los objetos que tengan el tipo que seleccioné
-    
+
     setTypeSelected({
       ...typeSelected,
       [e.target.name]: e.target.checked,
     });
 
+
     if (e.target.checked) {
       const filteredResults = globalPokemons.filter((pokemon) =>
         pokemon.types.map((type) => type.type.name).includes(e.target.name)
       );
-      
-      setfilteredPokemons([...filteredPokemons, ...filteredResults]);
-      
+      const filterList = ([...filteredPokemons, ...filteredResults])
+      filterList.sort((a, b) => {
+        if (a.id > b.id) {
+          return 1
+        }
+        if (a.id < b.id) {
+          return -1
+        }
+        return 0
+      })
+
+      setfilteredPokemons(filterList);
+
     } else {
       const filteredResults = filteredPokemons.filter(
         (pokemon) =>
           !pokemon.types.map((type) => type.type.name).includes(e.target.name)
       );
+      const filterList = ([...filteredResults])
 
-      setfilteredPokemons([...filteredResults]);
+      filterList.sort((a, b) => {
+        if (a.id > b.id) {
+          return 1
+        }
+        if (a.id < b.id) {
+          return -1
+        }
+        return 0
+      })
+
+      setfilteredPokemons(filterList);
+      
+      
     }
 
-   
+
+
+
   };
 
   return (
@@ -148,6 +176,7 @@ export const PokemonProvider = ({ children }) => {
         // Filter Container Checkbox
         handleCheckbox,
         filteredPokemons,
+
       }}
     >
       {children}

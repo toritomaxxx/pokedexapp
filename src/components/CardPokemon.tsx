@@ -1,8 +1,12 @@
 import { Link } from "react-router-dom";
 import Card from '@mui/material/Card';
+import { Pokemon } from "../types/Pokemon"
 
+interface CardPokemonProps {
+  pokemon: Pokemon;
+}
 
-export const CardPokemon = ({ pokemon }) => {
+export const CardPokemon = ({ pokemon }: CardPokemonProps) => {
   return (
     <Link to={`/pokemon/${pokemon.id}`} className="card-pokemon">
       <Card
@@ -22,21 +26,12 @@ export const CardPokemon = ({ pokemon }) => {
             pokemon.sprites.other.dream_world.front_default === null ? (
               <img
                 src={pokemon.sprites.front_default}
-                alt={`Pokemon ${pokemon.name}`}
-                style={{
-                  width: "200px",
-                  height: "200px",
-                }}
+                alt={`Pokemon ${pokemon.name}`} 
               />
             ) : (
               <img
                 src={pokemon.sprites.other.dream_world.front_default}
                 alt={`Pokemon ${pokemon.name}`}
-                style={{
-                  width: "200px",
-                  height: "200px",
-
-                }}
               />
             )
 
@@ -44,13 +39,9 @@ export const CardPokemon = ({ pokemon }) => {
         </div>
         <div className="card-info">
           <span className="pokemon-id">N° {pokemon.id}</span>
-          <h3
-            style={{
-              textTransform: "capitalize",
-            }}
-          >{pokemon.name}</h3>
+          <h3>{pokemon.name}</h3>
           <div className="card-types">
-            {pokemon.types.map((type) => (
+            {pokemon.types.map((type:string|undefined) => (
               <span key={type.type.name} className={type.type.name}>
                 {type.type.name}
               </span>
